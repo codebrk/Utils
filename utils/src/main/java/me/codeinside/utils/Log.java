@@ -10,8 +10,9 @@ public class Log {
         mContext = context;
     }
 
-    public void v(String s) {
-        android.util.Log.v(mContext.getClass().getSimpleName(), s);
-        Toast.makeText(mContext, s, Toast.LENGTH_SHORT).show();
+    public <T> void v(T s) {
+        String msg = "VERBOSE: " + s.toString();
+        android.util.Log.v(mContext.getClass().getSimpleName(), msg);
+        Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
     }
 }
